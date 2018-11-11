@@ -12,9 +12,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 app.use(express.static(path.join(__dirname, "client", "build")))
 
-// app.get('/', function (req, res){
-// 	res.send('Root route')
-// })
+app.get('/', function (req, res){
+	res.send('Root route')
+})
 
 app.use('/api/todos', todoRoutes);
 
