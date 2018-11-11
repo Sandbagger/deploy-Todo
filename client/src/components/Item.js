@@ -1,13 +1,14 @@
 import React from 'react';
+import ListItem from '@material-ui/core/ListItem';
 
 const Item = (props) => (
-    <li>
+    <ListItem>
         <span
         onClick={() => props.onClick(props.completed, props._id)}
         style={{textDecoration: props.completed ? 'line-through' : 'none'}}>
         {props.name}
         </span>
-    </li>
+    </ListItem>
 );
 
 export default Item;
