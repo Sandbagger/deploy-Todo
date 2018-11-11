@@ -7,7 +7,9 @@ router.route('/')
     .get(util.getTodos)
     .post(util.createTodo)
 
-router.delete('/:id', util.deleteTodo);
+    router.route('/:id')
+    .delete(util.deleteTodo)
+    .put(util.updateTodo)
 
 
 module.exports = router;

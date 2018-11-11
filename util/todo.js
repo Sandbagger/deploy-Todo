@@ -3,7 +3,8 @@ const db = require('../models');
 module.exports = {
     getTodos: getTodos,
     createTodo: createTodo,
-    deleteTodo: deleteTodo
+    deleteTodo: deleteTodo,
+    updateTodo: updateTodo
 }
 
 function getTodos (req, res){
@@ -35,3 +36,12 @@ function deleteTodo (req, res){
         })
 }
 
+function updateTodo (req, res){
+    db.Todo.findOneAndUpdate({_id: req.params.id}, req.body, {new:true})
+        .then((t)=>{
+            res.json(t)
+        })
+        .catch((err)=>{
+            res.send(err)
+        })
+}
