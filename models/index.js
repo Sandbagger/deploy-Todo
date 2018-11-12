@@ -2,12 +2,15 @@
 const mongoose = require('mongoose');
 mongoose.set('debug', true); //catches errors
 
-var options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } }, 
-                replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } };       
+       
  
 var mongodbUri = 'mongodb://thisShouldBeSecret:qwert1@ds063779.mlab.com:63779/heroku_wmgdfcm5';
- 
-mongoose.connect(mongodbUri, options);
+
+mongoose.connect(mongodbUri, {
+    "user": "thisShouldBeSecret",
+    "pass": "qwert1",
+    "useMongoClient": true
+});
 var conn = mongoose.connection;             
  
 conn.on('error', console.error.bind(console, 'connection error:'));  
