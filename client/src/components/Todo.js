@@ -7,7 +7,7 @@ const url = 'http://localhost:3000/api/todos';
 
 const style = {
     height: "100%",
-    width: "50%",
+    width: "70vh",
     margin: "1em",
     textAlign: 'center',
     display: 'inline-block',
@@ -127,18 +127,26 @@ class Todo extends Component {
         console.log(this.state.todo, 'state')
         
         return (
-            <Grid container justify = "center">
-             <Paper
-                style={style}
-                    elevation={12}>
-                <Form 
-                    postTodo={this.postTodo}/>
+            <Paper
+            style={style}
+            elevation={12}>
+        <Grid container 
+            justify = "center"
+            direction = "column"
+            spacing = "8">
+             
+                <Grid item>
+                    <Form 
+                        postTodo={this.postTodo}/>
+                </Grid>
+                <Grid item>
                 <ul>
-                {list}
+                    {list}
                 </ul>
-                </Paper>
-</Grid>
-            
+                </Grid>
+                
+        </Grid>
+        </Paper>
         )
     }
 }

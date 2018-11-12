@@ -21,8 +21,10 @@ class Form extends Component {
         return (
             <Grid container 
                 justify = "center"
+                alignItems = "center"
                 direction = "column"
-                spacing = "8">
+                alignContent = "center"
+                spacing = "16">
                 <Grid item>
                     <TextField
                         placeholder="Add todo..."
