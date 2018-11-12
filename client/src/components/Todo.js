@@ -3,7 +3,7 @@ import Item from './Item.js';
 import Form from './Form.js';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-const url = '/';
+const url = '/api/todos/';
 
 const style = {
     height: "100%",
