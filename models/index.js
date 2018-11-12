@@ -7,7 +7,7 @@ var options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 
  
 var mongodbUri = 'mongodb://thisShouldBeSecret:qwert1@ds063779.mlab.com:63779/heroku_wmgdfcm5';
  
-mongoose.connect(process.env.MONGODB_URI, options);
+mongoose.connect(mongodbUri, options);
 var conn = mongoose.connection;             
  
 conn.on('error', console.error.bind(console, 'connection error:'));  
