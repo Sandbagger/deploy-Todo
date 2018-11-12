@@ -3,7 +3,7 @@ import Item from './Item.js';
 import Form from './Form.js';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-const url = 'http://localhost:3000/api/todos';
+const url = 'https://todo-deploy.herokuapp.com/';
 
 const style = {
     height: "100%",
@@ -115,6 +115,41 @@ class Todo extends Component {
     
     }
 
+    deleteTodo = (toggle, id) => {
+        const path = '/' + id; 
+         console.log("Toggle before", toggle, id)
+        
+         fetch(url + path,{
+             method: 'delete',
+             headers: new Headers({
+                 'Content-Type': 'application/json'
+             }),
+             body: JSON.stringify({completed: !toggle})
+         })
+         .then(res => {
+             if(!res .ok){
+                 if(res.status >= 400 && res.status < 500) {
+                    return res.json().then(data => {
+                        let err = {error: data.message};
+                        throw err;
+                    })
+                 } else {
+                     let err = {error: 'Sorry, the server is not responding. Please try again later.'}
+                     throw err;
+                 }
+             }
+                 return res.json();
+             })
+             .then(updated => {
+                 console.log('delete')
+                 
+                
+                 })
+                 
+             }
+     
+     
+ 
 
     render(){
         const list = this.state.todo.map((i) => (
