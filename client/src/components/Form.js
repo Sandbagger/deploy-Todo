@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+
+const style = {"padding-top": "5%"}
 
 class Form extends Component {
     constructor(props) {
@@ -16,16 +19,25 @@ class Form extends Component {
 
     render() {
         return (
-            <div>
-             <TextField
-             type="text" 
-             value ={this.state.input}
-             onChange={this.handleInput}/>
-             <Button
-                variant="contained"
-                onClick={() => this.handleClick()}
-                >Add</Button>
-            </div>
+            <Grid container 
+                justify = "center"
+                direction = "column"
+                spacing = "8">
+                <Grid item>
+                    <TextField
+                        placeholder="Add todo..."
+                        style = {style}
+                         type="text" 
+                         value ={this.state.input}
+                        onChange={this.handleInput}/>
+                </Grid>
+                <Grid item>
+                    <Button
+                        variant="contained"
+                        onClick={() => this.handleClick()}
+                    >Add</Button>
+                </Grid>
+            </Grid>
         )
     }
 }

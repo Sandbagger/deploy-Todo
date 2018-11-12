@@ -1,7 +1,17 @@
 import React, {Component} from 'react';
 import Item from './Item.js';
 import Form from './Form.js';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 const url = 'http://localhost:3000/api/todos';
+
+const style = {
+    height: "100%",
+    width: "50%",
+    margin: "1em",
+    textAlign: 'center',
+    display: 'inline-block',
+  };
 
 class Todo extends Component {
     constructor(props){
@@ -117,14 +127,18 @@ class Todo extends Component {
         console.log(this.state.todo, 'state')
         
         return (
-            <div>
-                <h1>Todo</h1>
+            <Grid container justify = "center">
+             <Paper
+                style={style}
+                    elevation={12}>
                 <Form 
                     postTodo={this.postTodo}/>
                 <ul>
                 {list}
                 </ul>
-            </div>
+                </Paper>
+</Grid>
+            
         )
     }
 }
