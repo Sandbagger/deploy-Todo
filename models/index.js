@@ -7,9 +7,7 @@ mongoose.set('debug', true); //catches errors
 var mongodbUri = 'mongodb://thisShouldBeSecret:qwert1@ds063779.mlab.com:63779/heroku_wmgdfcm5';
 
 mongoose.connect(mongodbUri, {
-    "user": "thisShouldBeSecret",
-    "pass": "qwert1",
-    "useMongoClient": true
+    useMongoClient: true
 });
 var conn = mongoose.connection;             
  
