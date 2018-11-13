@@ -3,12 +3,13 @@ import Item from './Item.js';
 import Form from './Form.js';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-const url = '/api/todo/';
+const url = process.env.MONGODB_URI ? '/api/todo/' : 'http://localhost:3000/api/todo/';
 
 const style = {
     height: "100%",
     width: "70vh",
     margin: "1em",
+    padding: "3em",
     textAlign: 'center',
     display: 'inline-block',
   };
@@ -100,7 +101,7 @@ class Todo extends Component {
             })
             .then(updated => {
                 console.log('update', updated)
-                //need to iterate through list to find modified Item to flip boolean
+                //need to iterate through list to find modified Item and flip boolean
                
                 const list = this.state.todo.map(todo => {
                     if(todo._id === updated._id){
@@ -115,18 +116,19 @@ class Todo extends Component {
     
     }
 
-    deleteTodo = (toggle, id) => {
-        const path = '/' + id; 
-         console.log("Toggle before", toggle, id)
+    deleteTodo = ( id) => {
+        const path = id; 
+         console.log("delete before", id)
         
          fetch(url + path,{
              method: 'delete',
              headers: new Headers({
                  'Content-Type': 'application/json'
              }),
-             body: JSON.stringify({completed: !toggle})
+             
          })
          .then(res => {
+             console.log('Then(res', res)
              if(!res .ok){
                  if(res.status >= 400 && res.status < 500) {
                     return res.json().then(data => {
@@ -140,10 +142,11 @@ class Todo extends Component {
              }
                  return res.json();
              })
-             .then(updated => {
-                 console.log('delete')
-                 
-                
+             .then((x) => {
+                 console.log('filter out deleted todo', x)
+                 const list = this.state.todo.filter(t => t._id !== id);
+                 console.log('list', list)
+                 return this.setState({todo:list}) 
                  })
                  
              }
@@ -155,33 +158,32 @@ class Todo extends Component {
         const list = this.state.todo.map((i) => (
             <Item
                 key={i._id}
-                {...i}
+                {...i}error
                 onClick = {this.toggleTodo}
+                onDelete = {this.deleteTodo}
                 />
         ));
         console.log(this.state.todo, 'state')
         
         return (
             <Paper
-            style={style}
-            elevation={12}>
-        <Grid container 
-            justify = "center"
-            direction = "column"
-            spacing = "8">
+              style={style}
+              elevation={12}>
+                <Grid container 
+                  justify = "center"
+                  direction = "column"
+                  spacing = "8">
              
-                <Grid item>
-                    <Form 
-                        postTodo={this.postTodo}/>
-                </Grid>
-                <Grid item>
-                <ul>
-                    {list}
-                </ul>
-                </Grid>
+                    <Grid item>
+                        <Form postTodo={this.postTodo}/>
+                    </Grid>
+
+                    <Grid item>
+                         {list}
+                    </Grid>
                 
-        </Grid>
-        </Paper>
+                </Grid>
+            </Paper>
         )
     }
 }
