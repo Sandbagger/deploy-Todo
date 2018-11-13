@@ -2,11 +2,12 @@
 const mongoose = require('mongoose');
 mongoose.set('debug', true); //catches errors
  
+const dbDriver = process.env.MONGODB_URI || "mongodb://localhost/todo-api";
 
 // Reference .env vars off of the process.env object
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/todo-api", function(err, db) {
+mongoose.connect(dbDriver, function(err, db) {
   if(!err) {
-    console.log("We are connected to db");
+    console.log("Connected to " + dbDriver);
   }
 })
 mongoose.set('debug', true); //catches errors
