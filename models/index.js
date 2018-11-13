@@ -1,9 +1,9 @@
 //When models dir is required it will look for this file first.
 const mongoose = require('mongoose');
-require('dotenv').config();
+const dotenv = require('dotenv').config();
 
 // Reference .env vars off of the process.env object
-MongoClient.connect(process.env.MONGODB_URI, function(err, db) {
+mongoose.connect(process.env.MONGODB_URI, function(err, db) {
   if(!err) {
     console.log("We are connected");
   }
