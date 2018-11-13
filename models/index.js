@@ -7,7 +7,7 @@ mongoose.connect(process.env.MONGODB_URI, function(err, db) {
   if(!err) {
     console.log("We are connected");
   }
-
+})
 mongoose.set('debug', true); //catches errors
    
 const conn = mongoose.connection;             
