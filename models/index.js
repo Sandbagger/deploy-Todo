@@ -2,11 +2,9 @@
 const mongoose = require('mongoose');
 mongoose.set('debug', true); //catches errors
  
- 
-var mongodbUri = 'mongodb://todo:2a4b1c@ds261253.mlab.com:61253/heroku_081pxq13'
 
 // Reference .env vars off of the process.env object
-mongoose.connect(mongodbUri, function(err, db) {
+mongoose.connect(process.env.MONGODB_URI, function(err, db) {
   if(!err) {
     console.log("We are connected to db");
   }
