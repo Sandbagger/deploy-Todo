@@ -4,7 +4,7 @@ mongoose.set('debug', true); //catches errors
  
 
 // Reference .env vars off of the process.env object
-mongoose.connect(process.env.MONGODB_URI, function(err, db) {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/todo-api", function(err, db) {
   if(!err) {
     console.log("We are connected to db");
   }
