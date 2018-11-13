@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 mongoose.set('debug', true); //catches errors
  
  
-var mongodbUri = 'mongodb://todo:2a4b1c.mlab.com:63779/heroku_wmgdfcm5';
+var mongodbUri = 'mongodb://todo:2a4b1c@ds261253.mlab.com:61253/heroku_081pxq13'
 
 // Reference .env vars off of the process.env object
 mongoose.connect(mongodbUri, function(err, db) {
