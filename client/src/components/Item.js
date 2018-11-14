@@ -1,8 +1,7 @@
 import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import Grid from '@material-ui/core/Grid';
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import { IconButton, ListItemText, Typography } from '@material-ui/core';
+import {ListItemText, Typography } from '@material-ui/core';
 import Delete from './Delete';
 
 const Item = (props) => (
@@ -14,10 +13,10 @@ const Item = (props) => (
     <Grid container 
     spacing={0}
     alignItems='center'
-    justify='space-between'> 
+    justify='space-between'
+    wrap='noWrap'> 
           <Grid 
-            item
-            wrap='nowrap'>
+            item>
             <ListItemText 
               inset>
                 <Typography wrap='noWrap'>

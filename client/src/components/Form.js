@@ -3,8 +3,6 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 
-const style = {"padding-top": "5%"}
-
 class Form extends Component {
     constructor(props) {
         super(props);
@@ -25,11 +23,11 @@ class Form extends Component {
                 alignItems = "center"
                 direction = "column"
                 alignContent = "center"
-                spacing = "16">
+                spacing = {16}>
                 <Grid item>
                     <TextField
                         placeholder="Add todo..."
-                        style = {style}
+        
                          type="text" 
                          value ={this.state.input}
                         onChange={this.handleInput}/>

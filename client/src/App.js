@@ -12,7 +12,7 @@ class App extends Component {
         <Grid container
            alignItems = "center"
           direction = "column"
-          spacing = "16">
+          spacing = {16}>
         <Grid item>
           <Todo/>
         </Grid>
