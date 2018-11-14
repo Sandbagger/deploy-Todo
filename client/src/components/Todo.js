@@ -3,11 +3,7 @@ import Item from './Item.js';
 import Form from './Form.js';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-<<<<<<< HEAD
 const url = process.env.MONGODB_URI ? '/api/todo/' : 'http://localhost:3000/api/todo/';
-=======
-const url = process.env.MONGODB_URI ? '/api/todo/' : 'http://localhost:3000/api/todo';
->>>>>>> master
 
 const style = {
     height: "100%",
