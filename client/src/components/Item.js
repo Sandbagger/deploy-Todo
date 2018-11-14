@@ -31,7 +31,7 @@ const Item = (props) => (
               onClick={(e) => {   
                   e.stopPropagation();
                 props.onDelete(props._id)}}>
-                 <Delete />
+                 <Delete completed={props.completed}/>
             </ListItem>
             </Grid>
             
