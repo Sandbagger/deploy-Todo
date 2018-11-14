@@ -15,6 +15,7 @@ class Form extends Component {
     handleClick = () => {
         console.log('Click', this.state.input)
         this.props.postTodo(this.state.input);
+        this.setState({input:''})
     }
 
     render() {
