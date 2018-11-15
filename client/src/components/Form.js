@@ -3,6 +3,10 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 
+
+
+
+
 class Form extends Component {
     constructor(props) {
         super(props);
@@ -21,7 +25,6 @@ class Form extends Component {
             <Grid container 
                 justify = "center"
                 alignItems = "center"
-                direction = "column"
                 alignContent = "center"
                 spacing = {16}>
                 <Grid item>
@@ -36,7 +39,9 @@ class Form extends Component {
                 </Grid>
                 <Grid item>
                     <Button
-                        variant="contained"
+                        variant="fab"
+                        mini
+                        color="primary"
                         onClick={() => this.handleClick()}
                     >Add</Button>
                 </Grid>
@@ -44,5 +49,6 @@ class Form extends Component {
         )
     }
 }
+
 
 export default Form;
