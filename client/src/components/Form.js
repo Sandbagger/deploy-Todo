@@ -27,7 +27,7 @@ class Form extends Component {
                 <Grid item>
                     <TextField
                         placeholder="Add todo..."
-        
+                        inputProps={{maxLength: 2}}
                          type="text" 
                          value ={this.state.input}
                         onChange={this.handleInput}/>
