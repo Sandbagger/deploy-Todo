@@ -29,6 +29,12 @@ class Form extends Component {
                         placeholder="Add todo..."
                         inputProps={{maxLength: 100}}
                          type="text" 
+                         onKeyPress={ (e) => {
+                            if (e.key === 'Enter') {
+                              console.log('Enter key pressed');
+                              this.handleClick()
+                            }
+                             }}
                          helperText={"Remaining characters " + (100 - this.state.input.length)}
                          value ={this.state.input}
                         onChange={this.handleInput}/>
