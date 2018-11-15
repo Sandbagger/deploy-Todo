@@ -7,8 +7,8 @@ import Paper from '@material-ui/core/Paper';
 const url = 'http://localhost:3001/api/todo/';
 
 const style = {
-    height: "100%",
-    width: "70vh",
+    minHeight: "500px",
+    minWidth: "75vh",
     margin: "1em",
     padding: "3em",
     textAlign: 'center',
