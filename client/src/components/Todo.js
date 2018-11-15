@@ -151,7 +151,7 @@ class Todo extends Component {
                 <Grid container 
                   justify = "center"
                   direction = "column"
-                  spacing = {8}>
+                  spacing = {16}>
              
                     <Grid item>
                         <Form postTodo={this.postTodo}/>
