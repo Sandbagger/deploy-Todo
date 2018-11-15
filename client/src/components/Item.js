@@ -2,7 +2,7 @@ import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import Grid from '@material-ui/core/Grid';
-import {ListItemText, Typography } from '@material-ui/core';
+import {ListItemText, Typography, Button } from '@material-ui/core';
 import Delete from './Delete';
 
 const Item = (props) => (
@@ -21,8 +21,7 @@ const Item = (props) => (
             <ListItemSecondaryAction onClick={(e) => {
                   e.stopPropagation();
                 props.onDelete(props._id)}}>
-               <Delete 
-                 isCompleted={props.completed}/>
+               <Button ><Delete isCompleted={props.completed}/></Button>
             </ListItemSecondaryAction>
   </ListItem>
 );
