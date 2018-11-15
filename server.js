@@ -1,7 +1,7 @@
 const express = require('express'),
 	cors = require('cors'),
 	app = express(),
-	port = process.env.PORT || 3000;
+	port = process.env.PORT || 3001;
 	bodyParser = require('body-parser'),
 	todoRoutes = require('./routes/todo'),
 	path = require("path");
