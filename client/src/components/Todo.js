@@ -3,7 +3,7 @@ import Item from './Item.js';
 import Form from './Form.js';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-const url = process.env.MONGODB_URI ? '/api/todo/' : 'http://localhost:3000/api/todo/';
+const url = '/api/todo/';
 
 const style = {
     height: "100%",
@@ -25,7 +25,7 @@ class Todo extends Component {
     componentWillMount(){
         fetch(url)
         .then(res => {
-            if(!res .ok){
+            if(!res.ok){
                 if(res.status >= 400 && res.status < 500) {
                    return res.json().then(data => {
                        let err = {error: data.message};
@@ -39,14 +39,13 @@ class Todo extends Component {
                 return res.json();
             })
             .then(todo => {
-                console.log(todo);
                 return this.setState({todo});
     
             })
     }
     
     postTodo = (t) => {
-        console.log('Todo POST', t)
+        
         fetch(url,{
             method: 'post',
             headers: new Headers({
@@ -55,7 +54,7 @@ class Todo extends Component {
             body: JSON.stringify({name: t})
         })
         .then(res => {
-            if(!res .ok){
+            if(!res.ok){
                 if(res.status >= 400 && res.status < 500) {
                    return res.json().then(data => {
                        let err = {error: data.message};
@@ -69,15 +68,12 @@ class Todo extends Component {
                 return res.json();
             })
             .then(t => {
-              //  console.log(todo);
                 return this.setState({todo: [...this.state.todo, t]});
             })
     }
 
     toggleTodo = (toggle, id) => {
        const path = '/' + id; 
-        console.log("Toggle before", toggle, id)
-       
         fetch(url + path,{
             method: 'put',
             headers: new Headers({
@@ -86,7 +82,7 @@ class Todo extends Component {
             body: JSON.stringify({completed: !toggle})
         })
         .then(res => {
-            if(!res .ok){
+            if(!res.ok){
                 if(res.status >= 400 && res.status < 500) {
                    return res.json().then(data => {
                        let err = {error: data.message};
@@ -100,9 +96,6 @@ class Todo extends Component {
                 return res.json();
             })
             .then(updated => {
-                console.log('update', updated)
-                //need to iterate through list to find modified Item and flip boolean
-               
                 const list = this.state.todo.map(todo => {
                     if(todo._id === updated._id){
                         return {...todo, completed: !todo.completed}
@@ -117,9 +110,7 @@ class Todo extends Component {
     }
 
     deleteTodo = ( id) => {
-        const path = id; 
-         console.log("delete before", id)
-        
+        const path = id;
          fetch(url + path,{
              method: 'delete',
              headers: new Headers({
@@ -128,8 +119,7 @@ class Todo extends Component {
              
          })
          .then(res => {
-             console.log('Then(res', res)
-             if(!res .ok){
+             if(!res.ok){
                  if(res.status >= 400 && res.status < 500) {
                     return res.json().then(data => {
                         let err = {error: data.message};
@@ -143,9 +133,7 @@ class Todo extends Component {
                  return res.json();
              })
              .then((x) => {
-                 console.log('filter out deleted todo', x)
-                 const list = this.state.todo.filter(t => t._id !== id);
-                 console.log('list', list)
+                 const list = this.state.todo.filter(t => t._id !== id)
                  return this.setState({todo:list}) 
                  })
                  
@@ -163,7 +151,6 @@ class Todo extends Component {
                 onDelete = {this.deleteTodo}
                 />
         ));
-        console.log(this.state.todo, 'state')
         
         return (
             <Paper
@@ -172,7 +159,7 @@ class Todo extends Component {
                 <Grid container 
                   justify = "center"
                   direction = "column"
-                  spacing = "8">
+                  spacing = {8}>
              
                     <Grid item>
                         <Form postTodo={this.postTodo}/>

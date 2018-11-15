@@ -2,8 +2,7 @@ import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import Grid from '@material-ui/core/Grid';
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import { IconButton, ListItemText, Typography } from '@material-ui/core';
+import {ListItemText, Typography } from '@material-ui/core';
 import Delete from './Delete';
 
 const Item = (props) => (
