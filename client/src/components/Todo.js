@@ -4,7 +4,7 @@ import Item from './Item.js';
 import Form from './Form.js';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-const url = 'http://localhost:3001/api/todo/';
+const url = '/api/todo/';
 
 const style = {
     minHeight: "500px",
