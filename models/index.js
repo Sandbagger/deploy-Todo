@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 mongoose.set('debug', true); 
  
 const dbDriver = process.env.MONGODB_URI || "mongodb://localhost/todo-api";
-
+console.log(dbDriver)
 mongoose.connect(dbDriver, function(err, db) {
   if(!err) {
     console.log("Connected to " + dbDriver);
@@ -11,10 +11,6 @@ mongoose.connect(dbDriver, function(err, db) {
 })
    
 const conn = mongoose.connection;             
- 
-conn.once('open', function() {
-  // Wait for the database connection to establish, then start the app.                         
-});
 
 mongoose.Promise = Promise;
 
