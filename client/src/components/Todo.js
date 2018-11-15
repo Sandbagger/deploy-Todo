@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
+import List from '@material-ui/core/List';
 import Item from './Item.js';
 import Form from './Form.js';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-const url = '/api/todo/';
+const url = 'http://localhost:3000/api/todo/';
 
 const style = {
     height: "100%",
@@ -143,15 +144,6 @@ class Todo extends Component {
  
 
     render(){
-        const list = this.state.todo.map((i) => (
-            <Item
-                key={i._id}
-                {...i}error
-                onClick = {this.toggleTodo}
-                onDelete = {this.deleteTodo}
-                />
-        ));
-        
         return (
             <Paper
               style={style}
@@ -159,14 +151,26 @@ class Todo extends Component {
                 <Grid container 
                   justify = "center"
                   direction = "column"
-                  spacing = {8}>
+                  spacing = {16}>
              
                     <Grid item>
                         <Form postTodo={this.postTodo}/>
                     </Grid>
 
                     <Grid item>
-                         {list}
+                        <List dense>
+                             {this.state.todo.map((i) => (
+            
+                                <Item
+                                     key={i._id}
+                                     {...i}
+                                     onClick = {this.toggleTodo}
+                                    onDelete = {this.deleteTodo}
+                                     />
+                                     ))}
+                        </List>
+
+                         
                     </Grid>
                 
                 </Grid>

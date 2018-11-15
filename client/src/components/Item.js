@@ -14,12 +14,20 @@ const Item = (props) => (
     
             <ListItemText 
               inset>
-                <Typography wrap='noWrap'>
+                <Typography noWrap>
                     {props.name}
                     </Typography>
             </ListItemText>
+<<<<<<< HEAD
             <ListItemSecondaryAction>
                <Delete onDelete={props.onDelete(props._id)}/>
+=======
+            <ListItemSecondaryAction onClick={(e) => {
+                  e.stopPropagation();
+                props.onDelete(props._id)}}>
+               <Delete 
+                 isCompleted={props.completed}/>
+>>>>>>> master
             </ListItemSecondaryAction>
   </ListItem>
 );
