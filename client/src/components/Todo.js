@@ -8,8 +8,8 @@ const url = '/api/todo/';
 
 const style = {
     minHeight: "500px",
-    minWidth: "75vh",
-    margin: "1em",
+    minWidth: "300px",
+    marginTop: "3em",
     padding: "3em",
     textAlign: 'center',
     display: 'inline-block',
@@ -139,9 +139,6 @@ class Todo extends Component {
                  })
                  
              }
-     
-     
- 
 
     render(){
         return (
