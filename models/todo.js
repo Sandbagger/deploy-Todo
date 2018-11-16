@@ -7,7 +7,7 @@ const todoSchema = new mongoose.Schema({
     },
     completed: {
         type: Boolean,
-        default: false, // only need to update field if true
+        default: false,
     },
     entry_date: {
         type: Date,
