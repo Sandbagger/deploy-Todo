@@ -3,10 +3,6 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 
-
-
-
-
 class Form extends Component {
     constructor(props) {
         super(props);
@@ -15,7 +11,6 @@ class Form extends Component {
 
     handleInput = e => this.setState({input: e.target.value});
     handleClick = () => {
-        console.log('Click', this.state.input)
         this.props.postTodo(this.state.input);
         this.setState({input:''})
     }
@@ -30,12 +25,12 @@ class Form extends Component {
                 <Grid item>
                     <TextField
                         placeholder="Add todo..."
-                        inputProps={{maxLength: 100}}
+                        inputProps={{maxLength: 40}}
                          type="text" 
                          onKeyPress={(e) => {
                              if(e.key === 'Enter' && this.state.input.length > 0) {
                                  this.handleClick()}}}
-                         helperText={"Remaining characters " + (100 - this.state.input.length)}
+                         helperText={"Remaining characters " + (40 - this.state.input.length)}
                          value ={this.state.input}
                         onChange={this.handleInput}/>
                 </Grid>
