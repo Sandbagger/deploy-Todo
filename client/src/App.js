@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Todo from './components/Todo.js';
-import './App.css';
 import Grid from '@material-ui/core/Grid';
 import NavBar from './components/Navbar.js'
 
