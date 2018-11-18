@@ -30,7 +30,7 @@ class Form extends Component {
                          onKeyPress={(e) => {
                              if(e.key === 'Enter' && this.state.input.length > 0) {
                                  this.handleClick()}}}
-                         helperText={"Remaining characters " + (40 - this.state.input.length)}
+                         helperText={this.state.input.length + "/40"}
                          value ={this.state.input}
                         onChange={this.handleInput}/>
                 </Grid>
