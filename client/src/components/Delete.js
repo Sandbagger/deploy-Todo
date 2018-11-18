@@ -3,7 +3,7 @@ import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 const Delete = props => (
-    props.isCompleted ? <DeleteForeverIcon /> : <DeleteIcon/>
+    props.isCompleted ? <DeleteForeverIcon /> : null
 )
 
 export default Delete;
