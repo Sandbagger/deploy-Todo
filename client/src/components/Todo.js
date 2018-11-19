@@ -30,6 +30,7 @@ class Todo extends Component {
                 if(res.status >= 400 && res.status < 500) {
                    return res.json().then(data => {
                        let err = {error: data.message};
+                
                        throw err;
                    })
                 } else {
@@ -42,8 +43,12 @@ class Todo extends Component {
             .then(todo => {
                 return this.setState({todo});
     
+            }).catch(err => {
+                    console.log('Looks like something went wrong. Have you checked Todo.js request path and/or status of database connection?  Error: ' + err)
+                    
             })
-    }
+
+    };
     
     postTodo = (t) => {
         
@@ -70,7 +75,10 @@ class Todo extends Component {
             })
             .then(t => {
                 return this.setState({todo: [...this.state.todo, t]});
-            })
+            }).catch(err => {
+                console.log('Looks like something went wrong. Have you checked Todo.js request path and/or status of database connection?  Error: ' + err)
+                
+        })
     }
 
     toggleTodo = (toggle, id) => {
@@ -106,7 +114,7 @@ class Todo extends Component {
                 })
                 
                 return this.setState({todo: list});
-            })
+            }).catch(err => console.log(err))
     
     }
 
@@ -136,7 +144,7 @@ class Todo extends Component {
              .then((x) => {
                  const list = this.state.todo.filter(t => t._id !== id)
                  return this.setState({todo:list}) 
-                 })
+                 }).catch(err => console.log(err))
                  
              }
 
