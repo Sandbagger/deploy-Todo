@@ -13,6 +13,6 @@ The application is hosted on Heroku, with Express responsible for serving both t
 * Run npm install for both deploy-todo and client folder. 
 * Modify request path URL in Todo.js to include localhost.  
 * Express API and client server defaults to port 3001 and 3000 respectively. 
-* You can change Mongoose driver settings for database integration in models/index.js
+* Requires local installation of MongoDB.You can change Mongoose driver settings for the database integration in models/index.js.
 
 
