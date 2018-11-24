@@ -11,8 +11,10 @@ class Form extends Component {
 
     handleInput = e => this.setState({input: e.target.value});
     handleClick = () => {
+        if (this.state.input.length > 0) {
         this.props.postTodo(this.state.input);
         this.setState({input:''})
+        }
     }
 
     render() {
@@ -28,7 +30,7 @@ class Form extends Component {
                         inputProps={{maxLength: 40}}
                          type="text" 
                          onKeyPress={(e) => {
-                             if(e.key === 'Enter' && this.state.input.length > 0) {
+                             if(e.key === 'Enter') {
                                  this.handleClick()}}}
                          helperText={this.state.input.length + "/40"}
                          value ={this.state.input}
